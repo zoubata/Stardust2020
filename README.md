@@ -4,8 +4,11 @@ Stardust2020 robot for 2020
 
 
 
-## to record visdeo with web cam
+
+## to record video with web cam
+
 ### install video
+
 sudo apt-get install mplayer
 sudo apt-get install vlc xawtv
 sudo apt-get install vlc xawtv streamer ffmpeg
@@ -73,27 +76,8 @@ sudo chmod a+rw /dev/ydlidar
 sudo chmod a+rw /dev/ttyUSB0 
 
 
-#### launch
-
-roslaunch ydlidar lidar_view.launch
-rosrun ydlidar ydlidar_client
-roslaunch ydlidar lidar.launch
-
-## joy
-to compile ros joystick_drivers without:
--  fatal error: cwiid.h
--  fatal error: bluetooth/bluetooth.h:
--  fatal error: spnav.h:
--  libusb not found
-.
-install :
-
+#### build & launch
 sudo apt-get install libusb-1.0-0-dev
-sudo apt-get install libspnav-dev
-sudo apt-get install libbluetooth-dev
-sudo apt-get install libcwiid-dev
-
-
 cd ros
 catkin_make
 source ./devel/setup.sh
@@ -102,3 +86,204 @@ roscd ydlidar/startup
 
 
 
+roslaunch ydlidar lidar_view.launch
+rosrun ydlidar ydlidar_client
+roslaunch ydlidar lidar.launch
+
+
+## joy
+### linux install
+sudo apt install python3-pip
+sudo apt install python3-pyudev
+sudo apt install python3-evdev
+sudo apt install ds4drv
+sudo pip3 install ds4drv
+sudo apt install bluez
+sudo pip3 install ds4drv
+sudo apt-get install libusb-1.0-0-dev
+sudo apt-get install libspnav-dev
+
+#### install for ros package:
+
+ sudo apt-get install ros-kinetic-joy
+sudo apt-get install ros-kinetic-libusb
+sudo apt-get install libusb-1.0-0-dev
+ rosdep update
+  
+to compile ros joystick_drivers without:
+-  fatal error: cwiid.h
+-  fatal error: bluetooth/bluetooth.h:
+-  fatal error: spnav.h:
+-  libusb not found
+.
+sudo apt-get install libusb-1.0-0-dev
+sudo apt-get install libspnav-dev
+sudo apt-get install libbluetooth-dev
+sudo apt-get install libcwiid-dev
+
+
+sudo apt-get install jstest-gtk
+
+#### test :
+sudo ds4drv &
+sudo chmod a+rw /dev/input/js0
+jstest-gtk
+jstest /dev/input/js0
+
+#### test ros package
+
+rosparam set joy_node/dev "/dev/input/js0"
+roscore &
+rosrun joy joy_node
+  
+## arduino
+sudo apt-get install python-pip arduino
+sudo apt-get install picocom
+pip install ino
+pip install PlatformIO
+sudo apt-get install make cmake gcc gcc-avr
+sudo apt-get install python-smbus
+sudo apt-get install i2c-tools
+apt install python3-pip
+apt install bluez
+
+## eclipse
+sudo apt-get install eclipse gcc make arduino
+sudo apt-get install eclipse gcc make arduino
+eclipse
+sudo apt install default-jdk
+snap install eclipse --classic
+
+## ros
+
+### install :
+we take ros kinetic on ubuntu 16.04 this is the only version supporting rosjava.
+
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install gcc eclipse arduino
+sudo apt-get install net-tools
+sudo apt-get install openssh-server
+sudo systemctl status ssh
+sudo apt-get install libtiff-dev
+
+
+sudo apt-get update
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+curl -sSL 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xC1CF6E31E6BADE8868B172B4F42ED6FBAB17C654' | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install ros-kinetic-desktop-full ros-kinetic-desktop
+sudo apt-get install ros-kinetic-catkin ros-kinetic-rospack python-wstool openjdk-8-jdk
+wstool init -j4 ~/rosjava/src https://raw.githubusercontent.com/rosjava/rosjava/kinetic/rosjava.rosinstall
+rm -rf rosjava
+mkdir -p ~/rosjava/src
+wstool init -j4 ~/rosjava/src https://raw.githubusercontent.com/rosjava/rosjava/kinetic/rosjava.rosinstall
+sudo rosdep init
+rosdep update
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+cd ~/rosjava
+rosdep update
+rosdep install --from-paths src -i -y
+catkin_make
+mkdir -p ~/rosjava_minimal
+source /opt/ros/kinetic/setup.bash
+cd ~/rosjava_minimal
+rosdep update
+rosdep install --from-paths src -i -y -r
+catkin_make
+
+sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+
+
+source /opt/ros/kinetic/setup.bash
+rosdep update
+rosdep install --from-paths src -i -y
+catkin_make
+wstool merge https://raw.githubusercontent.com/me/rosinstalls/master/my_custom_msg_repos.rosinstall
+wstool merge https://raw.githubusercontent.com/me/rosinstalls/master/my_custom_msg_repos.ros install
+wstool set my_custom_msgs --git https://github.com/me/my_custom_msgs --version=kinetic-devel
+cd ~/rosjava
+catkin_make
+mkdir -p ~/rosjava_minimal
+source /opt/ros/kinetic/setup.bash
+cd ~/rosjava_minimal
+rosdep install --from-paths src -i -y -r
+catkin_make
+mkdir -p ~/myjava/src
+cd ~/myjava/src
+wstool init -j4 https://raw.githubusercontent.com/me/rosinstalls/master/my_custom_msg_repos.rosinstall
+ls
+wstool init -j4 https://raw.githubusercontent.com/me/rosinstalls/master/my_custom_msg_repos.ros install
+wstool init -j4 https://raw.githubusercontent.com/me/rosinstalls/master/my_custom_msg_repos.rosinstall
+source ~/rosjava/devel/setup.bash
+cd ..
+rosdep update
+rosdep install --from-paths src -i -y
+catkin_make
+
+
+
+####
+cd ..
+catkin_make
+source devel/setup.bash
+history
+cat ~/.bashrc
+source /opt/ros/kinetic/setup.bash
+  
+  
+## rosjava
+###
+
+## git
+ ssh-keygen -t rsa -b 4096 -C "zoubata@yahoo.com"
+  git clone git@github.com:zoubata/Stardust2020.git
+  
+  
+  ## VNC
+  sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
+  478  sudo apt-get update
+  479  sudo apt-get install realvnc-vnc-server realvnc-vnc-viewer
+  480  sudo apt-get install tightvncserver
+  481  vncserver --help
+  482  vncserver :10 - geometry 1280x1024
+
+sudo apt-get install tightvncserver
+
+   sudo systemctl start vncserver@1
+  228  sudo systemctl status vncserver@1
+  229  sudo apt install openssh-server
+  230  udo systemctl status ssh
+  231  sudo systemctl status ssh
+  
+  ## remote connection with windows
+  
+ 
+  install xrdp on linux mini pc :
+  
+ sudo apt-get install xrdp
+ sudo service xrdp restart
+ ifconfig
+ sudo systemctl enable xrdp
+ sudo apt-get update
+ sudo apt-get install xfce4
+ echo xfce4-session > .xsession
+  use mstsc on windows, with ip of ifconfig 
+  
+  ## ad linux user
+  sudo adduser cassie
+  
+  ## swap
+  add some swap to your PC
+  sudo swapon -s
+  cd ..
+  sudo fallocate -l 4G /swapfile
+  sudo chmod 600 /swapfile
+  sudo mkswap /swapfile
+  sudo swapon /swapfile
+  
