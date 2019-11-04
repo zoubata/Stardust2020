@@ -238,7 +238,53 @@ source /opt/ros/kinetic/setup.bash
   
   
 ## rosjava
-###
+### install
+after ros installation
+sudo apt-get install ros-kinetic-rosjava
+
+#### install java 11
+sudo apt-get update && apt-get upgrade
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:linuxuprising/java
+sudo apt-get update
+sudo apt-get install oracle-java13-installer
+
+### use it
+#### create workspace
+mkdir -p ~/myjava/src
+cd ~/myjava/src
+source /opt/ros/kinetic/setup.bash
+catkin_init_workspace
+cd ~/myjava
+catkin_make
+
+#### create  package
+cd src
+ catkin_create_rosjava_pkg rosjava_catkin_package_a
+ cd ..
+ catkin_make
+ source devel/setup.bash
+ 
+#### create binary project
+cd src/rosjava_catkin_package_a
+catkin_create_rosjava_project rosjava_gradle_subproject_a
+cd ../..
+catkin_make
+
+
+#### create library project
+ cd src/rosjava_catkin_package_a
+ catkin_create_rosjava_library_project rosjava_gradle_subproject_b
+ cd ../..
+ catkin_make
+ 
+ 
+#### generate eclipse project
+cd package
+nano build.gradle
+uncomment  apply plugin: "eclipse"
+./gradlew eclipse
+
 
 ## git
  ssh-keygen -t rsa -b 4096 -C "zoubata@yahoo.com"
