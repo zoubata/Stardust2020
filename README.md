@@ -3,7 +3,12 @@ Stardust2020 robot for 2020
 
 
 
+## PC install
 
+## instal Windows subsystem for linux ubuntu 16.04
+## Xming
+
+###
 
 ## to record video with web cam
 
@@ -227,7 +232,7 @@ rosdep install --from-paths src -i -y
 catkin_make
 
 
-####
+#### build
 cd ..
 catkin_make
 source devel/setup.bash
@@ -333,89 +338,32 @@ sudo apt-get install tightvncserver
   sudo swapon /swapfile
   
 
-	static public final int PS3_BUTTON_SELECT   =         0;
-	static public final int  PS3_BUTTON_STICK_LEFT      =  1;
-	static public final int  PS3_BUTTON_STICK_RIGHT     =  2;
-	static public final int  PS3_BUTTON_START           =  3;
-	static public final int  PS3_BUTTON_CROSS_UP        =  4;
-	static public final int  PS3_BUTTON_CROSS_RIGHT     =  5;
-	static public final int  PS3_BUTTON_CROSS_DOWN      =  6;
-	static public final int  PS3_BUTTON_CROSS_LEFT      =  7;
-	static public final int  PS3_BUTTON_REAR_LEFT_2     =  8;
-	static public final int  PS3_BUTTON_REAR_RIGHT_2    =  9;
-	static public final int  PS3_BUTTON_REAR_LEFT_1     =  10;
-	static public final int PS3_BUTTON_REAR_RIGHT_1     = 11;
-	static public final int  PS3_BUTTON_ACTION_TRIANGLE =  12;
-	static public final int  PS3_BUTTON_ACTION_CIRCLE   =  13;
-	static public final int  PS3_BUTTON_ACTION_CROSS    =  14;
-	static public final int  PS3_BUTTON_ACTION_SQUARE   =  15;
-	static public final int  PS3_BUTTON_PAIRING         =  16;
 
-	static public final int  PS3_AXIS_STICK_LEFT_LEFTWARDS  =  0;
-	static public final int  PS3_AXIS_STICK_LEFT_UPWARDS    =  1;
-	static public final int  PS3_AXIS_STICK_RIGHT_LEFTWARDS =  2;
-	static public final int  PS3_AXIS_STICK_RIGHT_UPWARDS   =  3;
-	static public final int  PS3_AXIS_BUTTON_CROSS_UP       =  4;
-	static public final int  PS3_AXIS_BUTTON_CROSS_RIGHT    =  5;
-	static public final int  PS3_AXIS_BUTTON_CROSS_DOWN     =  6;
-	static public final int PS3_AXIS_BUTTON_CROSS_LEFT      = 7;
-	static public final int  PS3_AXIS_BUTTON_REAR_LEFT_2    =  8;
-	static public final int  PS3_AXIS_BUTTON_REAR_RIGHT_2   =  9;
-	static public final int  PS3_AXIS_BUTTON_REAR_LEFT_1    =  10;
-	static public final int  PS3_AXIS_BUTTON_REAR_RIGHT_1   =  11;
-	static public final int  PS3_AXIS_BUTTON_ACTION_TRIANGLE=  12;
-	static public final int  PS3_AXIS_BUTTON_ACTION_CIRCLE  =  13;
-	static public final int  PS3_AXIS_BUTTON_ACTION_CROSS   =  14;
-	static public final int  PS3_AXIS_BUTTON_ACTION_SQUARE  =  15;
-	static public final int  PS3_AXIS_ACCELEROMETER_LEFT    =  16;
-	static public final int  PS3_AXIS_ACCELEROMETER_FORWARD  = 17;
-	static public final int  PS3_AXIS_ACCELEROMETER_UP      =  18;
-	static public final int  PS3_AXIS_GYRO_YAW              =  19;
-	
-	static public final int PS4_BUTTON_OPTION   =         9;//option
-	static public final int  PS4_BUTTON_STICK_LEFT      =  10;
-	static public final int  PS4_BUTTON_STICK_RIGHT     =  11;
-	static public final int  PS4_BUTTON_START           =  12;//ps4
-	static public final int  PS4_BUTTON_PADDLE        =  13;
-	/*
-	static public final int  PS4_BUTTON_CROSS_UP        =  ;
-	static public final int  PS4_BUTTON_CROSS_RIGHT     =  ;
-	static public final int  PS4_BUTTON_CROSS_DOWN      =  ;
-	static public final int  PS4_BUTTON_CROSS_LEFT      =  ;*/
-	static public final int  PS4_BUTTON_REAR_LEFT_2     =  6;
-	static public final int  PS4_BUTTON_REAR_RIGHT_2    =  7;
-	static public final int  PS4_BUTTON_REAR_LEFT_1     =  4;
-	static public final int PS4_BUTTON_REAR_RIGHT_1     = 5;
-	static public final int  PS4_BUTTON_ACTION_TRIANGLE =  3;
-	static public final int  PS4_BUTTON_ACTION_CIRCLE   =  2;
-	static public final int  PS4_BUTTON_ACTION_CROSS    =  1;
-	static public final int  PS4_BUTTON_ACTION_SQUARE   =  0;
-	static public final int  PS4_BUTTON_SHARE         =  8;//share
+## start robot
+### for telecommand :
+wiki startdust 
+ssh r1@10.42.0.1
 
-	static public final int  PS4_AXIS_STICK_LEFT_LEFTWARDS  =  0;
-	static public final int  PS4_AXIS_STICK_LEFT_UPWARDS    =  1;
-	static public final int  PS4_AXIS_STICK_RIGHT_LEFTWARDS =  2;
-	static public final int  PS4_AXIS_STICK_RIGHT_UPWARDS   =  5;
-	static public final int  PS4_AXIS_BUTTON_CROSS_UPWARDS       =  10;
-/*	static public final int  PS4_AXIS_BUTTON_CROSS_RIGHT    =  10;
-	static public final int  PS4_AXIS_BUTTON_CROSS_DOWN     =  9;*/
-	static public final int  PS4_AXIS_BUTTON_CROSS_LEFTWARDS      = 9;
-	static public final int  PS4_AXIS_BUTTON_REAR_LEFT_2    =  3;
-	static public final int  PS4_AXIS_BUTTON_REAR_RIGHT_2   =  4;
-	/*
-	static public final int  PS4_AXIS_BUTTON_REAR_LEFT_1    =  10;
-	static public final int  PS4_AXIS_BUTTON_REAR_RIGHT_1   =  11;*//*
-	static public final int  PS4_AXIS_BUTTON_ACTION_TRIANGLE=  12;
-	static public final int  PS4_AXIS_BUTTON_ACTION_CIRCLE  =  13;
-	static public final int  PS4_AXIS_BUTTON_ACTION_CROSS   =  14;
-	static public final int  PS4_AXIS_BUTTON_ACTION_SQUARE  =  15;*/
-	static public final int  PS4_AXIS_ACCELEROMETER_LEFT    =  6;
-	static public final int  PS4_AXIS_ACCELEROMETER_FORWARD  = 7;
-	static public final int  PS4_AXIS_ACCELEROMETER_UP      =  8;
-	static public final int  PS4_AXIS_GYRO_XAW              =  13;
-	static public final int  PS4_AXIS_GYRO_YAW              =  11;
-	static public final int  PS4_AXIS_GYRO_ZAW              =  12;
-	
-	
-	
+  cd stardust_v1_pierre/
+  cd scripts/
+  sudo rm /tmp/ros.pid
+  ./start.sh
 
+...
+
+ ./stop.sh
+ 
+ 
+ 
+ sudo kill -9 1530 1566 1577
+ps -aux | grep ros
+
+### serial port
+#### linux
+sudo usermod -a -G uucp username
+sudo usermod -a -G dialout username
+sudo usermod -a -G lock username
+sudo usermod -a -G tty username
+#### java :
+https://fazecast.github.io/jSerialComm/
+https://github.com/Fazecast/jSerialComm.git
