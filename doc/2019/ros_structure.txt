@@ -1,0 +1,1378 @@
+
+--------------------------------------------------------------------------------
+Node [/r1/hardware_interface]
+Publications: 
+ * /r1/back_wheel_to_base_state [control_msgs/JointControllerState]
+ * /r1/hardware_interface/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /r1/hardware_interface/parameter_updates [dynamic_reconfigure/Config]
+ * /r1/joint_states [sensor_msgs/JointState]
+ * /r1/left_wheel_to_base_state [control_msgs/JointControllerState]
+ * /r1/mobile_base_controller/cmd_vel_out [geometry_msgs/TwistStamped]
+ * /r1/mobile_base_controller/odom [nav_msgs/Odometry]
+ * /r1/pwm/back [std_msgs/Int16]
+ * /r1/pwm/left [std_msgs/Int16]
+ * /r1/pwm/right [std_msgs/Int16]
+ * /r1/right_wheel_to_base_state [control_msgs/JointControllerState]
+ * /r1/speed/back [std_msgs/Int32]
+ * /r1/speed/left [std_msgs/Int32]
+ * /r1/speed/right [std_msgs/Int32]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf/tfMessage]
+
+Subscriptions: 
+ * /r1/encoder/back [std_msgs/Int16]
+ * /r1/encoder/back/speed [std_msgs/Int32]
+ * /r1/encoder/left [std_msgs/Int16]
+ * /r1/encoder/left/speed [std_msgs/Int32]
+ * /r1/encoder/right [std_msgs/Int16]
+ * /r1/encoder/right/speed [std_msgs/Int32]
+ * /r1/mobile_base_controller/cmd_vel [geometry_msgs/Twist]
+
+Services: 
+ * /r1/controller_manager/list_controller_types
+ * /r1/controller_manager/list_controllers
+ * /r1/controller_manager/load_controller
+ * /r1/controller_manager/reload_controller_libraries
+ * /r1/controller_manager/switch_controller
+ * /r1/controller_manager/unload_controller
+ * /r1/hardware_interface/get_loggers
+ * /r1/hardware_interface/set_logger_level
+ * /r1/hardware_interface/set_parameters
+
+
+contacting node http://10.42.0.1:35741/ ...
+Pid: 1623
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/right
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/speed/right
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/left
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/speed/left
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/back
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/speed/back
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/joint_states
+    * to: /r1/robot_state_publisher
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/mobile_base_controller/odom
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/mobile_base_controller/odom
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/encoder/right
+    * to: /r1/rosserial_server_motor (http://10.42.0.1:34559/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/encoder/right/speed
+    * to: /r1/rosserial_server_motor (http://10.42.0.1:34559/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/encoder/left
+    * to: /r1/rosserial_server_motor (http://10.42.0.1:34559/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/encoder/left/speed
+    * to: /r1/rosserial_server_motor (http://10.42.0.1:34559/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/encoder/back
+    * to: /r1/rosserial_server_motor (http://10.42.0.1:34559/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/encoder/back/speed
+    * to: /r1/rosserial_server_motor (http://10.42.0.1:34559/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/mobile_base_controller/cmd_vel
+    * to: /r1/r1_behavior_base_node (http://10.42.0.1:42107/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/joint_state_publisher]
+Publications: 
+ * /r1/joint_states [sensor_msgs/JointState]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /r1/joint_state_publisher/get_loggers
+ * /r1/joint_state_publisher/set_logger_level
+
+
+contacting node http://10.42.0.1:36649/ ...
+Pid: 1611
+Connections:
+ * topic: /r1/joint_states
+    * to: /r1/robot_state_publisher
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/joy_xbox]
+Publications: 
+ * /diagnostics [diagnostic_msgs/DiagnosticArray]
+ * /r1/joy [sensor_msgs/Joy]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /r1/joy_xbox/get_loggers
+ * /r1/joy_xbox/set_logger_level
+
+
+contacting node http://10.42.0.1:44229/ ...
+Pid: 1715
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/joy
+    * to: /r1/r1_teleop
+    * direction: outbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/mpu6050]
+Publications: 
+ * /r1/imu/data_raw [sensor_msgs/Imu]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /r1/mpu6050/get_bias
+ * /r1/mpu6050/get_loggers
+ * /r1/mpu6050/set_logger_level
+
+
+contacting node http://10.42.0.1:43351/ ...
+Pid: 1627
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/imu/data_raw
+    * to: /r1/r1_imu_filter_madgwick
+    * direction: outbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_amcl]
+Publications: 
+ * /r1/amcl_pose [geometry_msgs/PoseWithCovarianceStamped]
+ * /r1/particlecloud [geometry_msgs/PoseArray]
+ * /r1/r1_amcl/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /r1/r1_amcl/parameter_updates [dynamic_reconfigure/Config]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf/tfMessage]
+
+Subscriptions: 
+ * /r1/initialpose [geometry_msgs/PoseWithCovarianceStamped]
+ * /r1/laser/scan_filtered [sensor_msgs/LaserScan]
+ * /r1/map [nav_msgs/OccupancyGrid]
+ * /tf [tf/tfMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /r1/global_localization
+ * /r1/r1_amcl/get_loggers
+ * /r1/r1_amcl/set_logger_level
+ * /r1/r1_amcl/set_parameters
+ * /r1/request_nomotion_update
+ * /r1/set_map
+
+
+contacting node http://10.42.0.1:43585/ ...
+Pid: 1682
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/amcl_pose
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/amcl_pose
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map (http://10.42.0.1:39499/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom (http://10.42.0.1:34909/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/laser/scan_filtered
+    * to: /r1/r1_laser_scan_filter (http://10.42.0.1:38453/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/initialpose
+    * to: /r1/r1_snap_map (http://10.42.0.1:45867/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/initialpose
+    * to: /r1/r1_behavior_base_node (http://10.42.0.1:42107/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/map
+    * to: /r1/r1_map_server (http://10.42.0.1:38489/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_behavior_base_node]
+Publications: 
+ * /r1/initialpose [geometry_msgs/PoseWithCovarianceStamped]
+ * /r1/mobile_base_controller/cmd_vel [geometry_msgs/Twist]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /r1/auto_cmd_vel [geometry_msgs/Twist]
+ * /r1/mode_auto [std_msgs/Bool]
+ * /r1/r1_teleop/cmd_vel [geometry_msgs/Twist]
+ * /r1/start [unknown type]
+
+Services: 
+ * /r1/r1_behavior_base_node/get_loggers
+ * /r1/r1_behavior_base_node/set_logger_level
+
+
+contacting node http://10.42.0.1:42107/ ...
+Pid: 1651
+Connections:
+ * topic: /r1/mobile_base_controller/cmd_vel
+    * to: /r1/hardware_interface
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/initialpose
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/auto_cmd_vel
+    * to: /r1/r1_move_base (http://10.42.0.1:36991/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/mode_auto
+    * to: /r1/r1_teleop (http://10.42.0.1:41231/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/r1_teleop/cmd_vel
+    * to: /r1/r1_teleop (http://10.42.0.1:41231/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_behavior_tree]
+Publications: 
+ * /r1/lcd/line1 [std_msgs/String]
+ * /r1/move_base/cancel [actionlib_msgs/GoalID]
+ * /r1/move_base/goal [move_base_msgs/MoveBaseActionGoal]
+ * /r1/pwm/pompe [std_msgs/Int16]
+ * /r1/pwm/vanne1 [std_msgs/Int16]
+ * /r1/pwm/vanne2 [std_msgs/Int16]
+ * /r1/pwm/vanne3 [std_msgs/Int16]
+ * /r1/servo/E [std_msgs/UInt16]
+ * /r1/servo/F [std_msgs/UInt16]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /r1/amcl_pose [geometry_msgs/PoseWithCovarianceStamped]
+ * /r1/auto_cmd_vel [geometry_msgs/Twist]
+ * /r1/move_base/feedback [unknown type]
+ * /r1/move_base/result [unknown type]
+ * /r1/move_base/status [unknown type]
+ * /r1/pilo/switches [std_msgs/UInt32]
+ * /tf [tf/tfMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /r1/r1_behavior_tree/get_loggers
+ * /r1/r1_behavior_tree/set_logger_level
+
+
+contacting node http://10.42.0.1:37319/ ...
+Pid: 1659
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne1
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne3
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne2
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/pompe
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pilo/switches
+    * to: /r1/rosserial_server_pince (http://10.42.0.1:37971/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/amcl_pose
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/auto_cmd_vel
+    * to: /r1/r1_move_base (http://10.42.0.1:36991/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map (http://10.42.0.1:39499/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom (http://10.42.0.1:34909/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_imu_filter_madgwick]
+Publications: 
+ * /r1/imu/data [sensor_msgs/Imu]
+ * /r1/r1_imu_filter_madgwick/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /r1/r1_imu_filter_madgwick/parameter_updates [dynamic_reconfigure/Config]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf/tfMessage]
+
+Subscriptions: 
+ * /r1/imu/data_raw [sensor_msgs/Imu]
+
+Services: 
+ * /r1/r1_imu_filter_madgwick/get_loggers
+ * /r1/r1_imu_filter_madgwick/set_logger_level
+ * /r1/r1_imu_filter_madgwick/set_parameters
+
+
+contacting node http://10.42.0.1:39791/ ...
+Pid: 1667
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/imu/data
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/imu/data
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/imu/data_raw
+    * to: /r1/mpu6050 (http://10.42.0.1:43351/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_laser_scan_filter]
+Publications: 
+ * /r1/laser/scan_filtered [sensor_msgs/LaserScan]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /r1/laser/scan [sensor_msgs/LaserScan]
+ * /r1/r1_laser_scan_filter/use_angles2 [unknown type]
+
+Services: 
+ * /r1/r1_laser_scan_filter/get_loggers
+ * /r1/r1_laser_scan_filter/set_logger_level
+
+
+contacting node http://10.42.0.1:38453/ ...
+Pid: 1634
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/laser/scan_filtered
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/laser/scan_filtered
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/laser/scan
+    * to: /r1/ydlidar (http://10.42.0.1:33915/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_localization_map]
+Publications: 
+ * /diagnostics [diagnostic_msgs/DiagnosticArray]
+ * /r1/odom_filtered_map [nav_msgs/Odometry]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf/tfMessage]
+
+Subscriptions: 
+ * /r1/amcl_pose [geometry_msgs/PoseWithCovarianceStamped]
+ * /r1/imu/data [sensor_msgs/Imu]
+ * /r1/mobile_base_controller/odom [nav_msgs/Odometry]
+ * /r1/set_pose [unknown type]
+ * /tf [tf/tfMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /r1/r1_localization_map/enable
+ * /r1/r1_localization_map/get_loggers
+ * /r1/r1_localization_map/set_logger_level
+ * /r1/r1_localization_map/toggle
+
+
+contacting node http://10.42.0.1:39499/ ...
+Pid: 1677
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map (http://10.42.0.1:39499/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom (http://10.42.0.1:34909/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/mobile_base_controller/odom
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/amcl_pose
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/imu/data
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_localization_odom]
+Publications: 
+ * /diagnostics [diagnostic_msgs/DiagnosticArray]
+ * /r1/odometry/filtered [nav_msgs/Odometry]
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf/tfMessage]
+
+Subscriptions: 
+ * /r1/imu/data [sensor_msgs/Imu]
+ * /r1/mobile_base_controller/odom [nav_msgs/Odometry]
+ * /r1/set_pose [unknown type]
+ * /tf [tf/tfMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /r1/r1_localization_odom/enable
+ * /r1/r1_localization_odom/get_loggers
+ * /r1/r1_localization_odom/set_logger_level
+ * /r1/r1_localization_odom/toggle
+ * /r1/set_pose
+
+
+contacting node http://10.42.0.1:34909/ ...
+Pid: 1672
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom (http://10.42.0.1:34909/)
+    * direction: inbound
+    * transport: INTRAPROCESS
+ * topic: /tf
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map (http://10.42.0.1:39499/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/mobile_base_controller/odom
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/imu/data
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_map_server]
+Publications: 
+ * /r1/map [nav_msgs/OccupancyGrid]
+ * /r1/map_metadata [nav_msgs/MapMetaData]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /r1/r1_map_server/get_loggers
+ * /r1/r1_map_server/set_logger_level
+ * /r1/static_map
+
+
+contacting node http://10.42.0.1:38489/ ...
+Pid: 1663
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/map
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/map
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_move_base]
+Publications: 
+ * /r1/auto_cmd_vel [geometry_msgs/Twist]
+ * /r1/move_base/goal [move_base_msgs/MoveBaseActionGoal]
+ * /r1/r1_move_base/current_goal [geometry_msgs/PoseStamped]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /r1/move_base_simple/goal [unknown type]
+ * /tf [tf/tfMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /r1/r1_move_base/get_loggers
+ * /r1/r1_move_base/set_logger_level
+
+
+contacting node http://10.42.0.1:36991/ ...
+Pid: 1709
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/auto_cmd_vel
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/auto_cmd_vel
+    * to: /r1/r1_behavior_base_node
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map (http://10.42.0.1:39499/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom (http://10.42.0.1:34909/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_obstacle_map_server]
+Publications: 
+ * /r1/map_static_obstacle [nav_msgs/OccupancyGrid]
+ * /r1/map_static_obstacle_metadata [nav_msgs/MapMetaData]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /r1/map_static_obstacle_service
+ * /r1/r1_obstacle_map_server/get_loggers
+ * /r1/r1_obstacle_map_server/set_logger_level
+
+
+contacting node http://10.42.0.1:43953/ ...
+Pid: 1703
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_snap_map]
+Publications: 
+ * /r1/initialpose [geometry_msgs/PoseWithCovarianceStamped]
+ * /r1/r1_snap_map/acml_monitoring [sd_localization/SnapMapMonitor]
+ * /r1/r1_snap_map/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /r1/r1_snap_map/parameter_updates [dynamic_reconfigure/Config]
+ * /r1/r1_snap_map/scan_points [sensor_msgs/PointCloud2]
+ * /r1/r1_snap_map/scan_points_transformed [sensor_msgs/PointCloud2]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /r1/laser/scan_filtered [sensor_msgs/LaserScan]
+ * /r1/map [nav_msgs/OccupancyGrid]
+ * /tf [tf/tfMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Services: 
+ * /r1/r1_snap_map/get_loggers
+ * /r1/r1_snap_map/set_logger_level
+ * /r1/r1_snap_map/set_parameters
+
+
+contacting node http://10.42.0.1:45867/ ...
+Pid: 1696
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/initialpose
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map (http://10.42.0.1:39499/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom (http://10.42.0.1:34909/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/map
+    * to: /r1/r1_map_server (http://10.42.0.1:38489/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/laser/scan_filtered
+    * to: /r1/r1_laser_scan_filter (http://10.42.0.1:38453/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/r1_teleop]
+Publications: 
+ * /r1/mode_auto [std_msgs/Bool]
+ * /r1/pwm/pompe [std_msgs/Int16]
+ * /r1/pwm/vanne1 [std_msgs/Int16]
+ * /r1/pwm/vanne2 [std_msgs/Int16]
+ * /r1/pwm/vanne3 [std_msgs/Int16]
+ * /r1/r1_teleop/cmd_vel [geometry_msgs/Twist]
+ * /r1/r1_teleop/parameter_descriptions [dynamic_reconfigure/ConfigDescription]
+ * /r1/r1_teleop/parameter_updates [dynamic_reconfigure/Config]
+ * /r1/servo/E [std_msgs/UInt16]
+ * /r1/servo/F [std_msgs/UInt16]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /r1/joy [sensor_msgs/Joy]
+
+Services: 
+ * /r1/r1_teleop/get_loggers
+ * /r1/r1_teleop/set_logger_level
+ * /r1/r1_teleop/set_parameters
+
+
+contacting node http://10.42.0.1:41231/ ...
+Pid: 1718
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/r1_teleop/cmd_vel
+    * to: /r1/r1_behavior_base_node
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/mode_auto
+    * to: /r1/r1_behavior_base_node
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/pompe
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne2
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne3
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne1
+    * to: /r1/rosserial_server_motor
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/joy
+    * to: /r1/joy_xbox (http://10.42.0.1:44229/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/robot_state_publisher]
+Publications: 
+ * /rosout [rosgraph_msgs/Log]
+ * /tf [tf/tfMessage]
+ * /tf_static [tf2_msgs/TFMessage]
+
+Subscriptions: 
+ * /r1/joint_states [sensor_msgs/JointState]
+
+Services: 
+ * /r1/robot_state_publisher/get_loggers
+ * /r1/robot_state_publisher/set_logger_level
+
+
+contacting node http://10.42.0.1:34461/ ...
+Pid: 1648
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/r1_behavior_tree
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/r1_localization_odom
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/r1_localization_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/r1_move_base
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/r1_amcl
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /tf_static
+    * to: /r1/r1_snap_map
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/joint_states
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/joint_states
+    * to: /r1/joint_state_publisher (http://10.42.0.1:36649/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/rosserial_message_info]
+Publications: 
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /r1/message_info
+ * /r1/rosserial_message_info/get_loggers
+ * /r1/rosserial_message_info/set_logger_level
+ * /r1/service_info
+
+
+contacting node http://10.42.0.1:41657/ ...
+Pid: 1614
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/rosserial_server_motor]
+Publications: 
+ * /r1/captor/debug/1 [std_msgs/Int16]
+ * /r1/captor/debug/2 [std_msgs/Int16]
+ * /r1/captor/debug/3 [std_msgs/Int16]
+ * /r1/captor/time_loop [std_msgs/Int32]
+ * /r1/captor/usart/rx [std_msgs/Int16]
+ * /r1/captor/usart/tx [std_msgs/Int16]
+ * /r1/encoder/back [std_msgs/Int16]
+ * /r1/encoder/back/speed [std_msgs/Int32]
+ * /r1/encoder/left [std_msgs/Int16]
+ * /r1/encoder/left/speed [std_msgs/Int32]
+ * /r1/encoder/right [std_msgs/Int16]
+ * /r1/encoder/right/speed [std_msgs/Int32]
+ * /r1/sensor/0 [std_msgs/Int16]
+ * /r1/sensor/1 [std_msgs/Int16]
+ * /r1/sensor/2 [std_msgs/Int16]
+ * /r1/sensor/3 [std_msgs/Int16]
+ * /r1/sensor/4 [std_msgs/Int16]
+ * /r1/sensor/5 [std_msgs/Int16]
+ * /r1/sensor/6 [std_msgs/Int16]
+ * /r1/sensor/7 [std_msgs/Int16]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /r1/pwm/back [std_msgs/Int16]
+ * /r1/pwm/left [std_msgs/Int16]
+ * /r1/pwm/pompe [std_msgs/Int16]
+ * /r1/pwm/right [std_msgs/Int16]
+ * /r1/pwm/vanne1 [std_msgs/Int16]
+ * /r1/pwm/vanne2 [std_msgs/Int16]
+ * /r1/pwm/vanne3 [std_msgs/Int16]
+ * /r1/speed/back [std_msgs/Int32]
+ * /r1/speed/left [std_msgs/Int32]
+ * /r1/speed/pompe [unknown type]
+ * /r1/speed/right [std_msgs/Int32]
+ * /r1/speed/vanne1 [unknown type]
+ * /r1/speed/vanne2 [unknown type]
+ * /r1/speed/vanne3 [unknown type]
+
+Services: 
+ * /r1/rosserial_server_motor/get_loggers
+ * /r1/rosserial_server_motor/set_logger_level
+
+
+contacting node http://10.42.0.1:34559/ ...
+Pid: 1612
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/encoder/right
+    * to: /r1/hardware_interface
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/encoder/right/speed
+    * to: /r1/hardware_interface
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/encoder/left
+    * to: /r1/hardware_interface
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/encoder/left/speed
+    * to: /r1/hardware_interface
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/encoder/back
+    * to: /r1/hardware_interface
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/encoder/back/speed
+    * to: /r1/hardware_interface
+    * direction: outbound
+    * transport: TCPROS
+ * topic: /r1/pwm/back
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/speed/back
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/right
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/speed/right
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/left
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/speed/left
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/pompe
+    * to: /r1/r1_teleop (http://10.42.0.1:41231/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/pompe
+    * to: /r1/r1_behavior_tree (http://10.42.0.1:37319/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne1
+    * to: /r1/r1_teleop (http://10.42.0.1:41231/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne1
+    * to: /r1/r1_behavior_tree (http://10.42.0.1:37319/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne2
+    * to: /r1/r1_teleop (http://10.42.0.1:41231/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne2
+    * to: /r1/r1_behavior_tree (http://10.42.0.1:37319/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne3
+    * to: /r1/r1_teleop (http://10.42.0.1:41231/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /r1/pwm/vanne3
+    * to: /r1/r1_behavior_tree (http://10.42.0.1:37319/)
+    * direction: inbound
+    * transport: TCPROS
+
+--------------------------------------------------------------------------------
+Node [/r1/rosserial_server_pince]
+Publications: 
+ * /r1/debug/1 [std_msgs/Int16]
+ * /r1/debug/2 [std_msgs/Int16]
+ * /r1/pilo/VbatmV [std_msgs/Int16]
+ * /r1/pilo/switches [std_msgs/UInt32]
+ * /r1/r1/pilo/time [std_msgs/Int32]
+ * /r1/usart/rx [std_msgs/Int16]
+ * /r1/usart/tx [std_msgs/Int16]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /r1/lcd/line1 [std_msgs/String]
+ * /r1/lcd/line2 [unknown type]
+ * /r1/motor2/0 [unknown type]
+ * /r1/motor2/2 [unknown type]
+ * /r1/motor2/4 [unknown type]
+ * /r1/motor2/6 [unknown type]
+ * /r1/motor2/8 [unknown type]
+ * /r1/motor2/A [unknown type]
+ * /r1/motor2/C [unknown type]
+ * /r1/motor2/E [unknown type]
+ * /r1/servo/C [unknown type]
+ * /r1/servo/D [unknown type]
+ * /r1/servo/E [std_msgs/UInt16]
+ * /r1/servo/F [std_msgs/UInt16]
+
+Services: 
+ * /r1/rosserial_server_pince/get_loggers
+ * /r1/rosserial_server_pince/set_logger_level
+
+
+contacting node http://10.42.0.1:37971/ ...
+--------------------------------------------------------------------------------
+Node [/r1/ydlidar]
+Publications: 
+ * /r1/laser/scan [sensor_msgs/LaserScan]
+ * /rosout [rosgraph_msgs/Log]
+
+Subscriptions: None
+
+Services: 
+ * /r1/ydlidar/get_loggers
+ * /r1/ydlidar/set_logger_level
+
+
+contacting node http://10.42.0.1:33915/ ...
+--------------------------------------------------------------------------------
+Node [/rosout]
+Publications: 
+ * /rosout_agg [rosgraph_msgs/Log]
+
+Subscriptions: 
+ * /rosout [rosgraph_msgs/Log]
+
+Services: 
+ * /rosout/get_loggers
+ * /rosout/set_logger_level
+
+
+contacting node http://10.42.0.1:34801/ ...
+Pid: 1602
+Connections:
+ * topic: /rosout
+    * to: /r1/rosserial_server_pince (http://10.42.0.1:37971/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/rosserial_server_motor (http://10.42.0.1:34559/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/mpu6050 (http://10.42.0.1:43351/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/hardware_interface (http://10.42.0.1:35741/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/ydlidar (http://10.42.0.1:33915/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_laser_scan_filter (http://10.42.0.1:38453/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/robot_state_publisher (http://10.42.0.1:34461/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_behavior_tree (http://10.42.0.1:37319/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_imu_filter_madgwick (http://10.42.0.1:39791/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_map_server (http://10.42.0.1:38489/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_localization_map (http://10.42.0.1:39499/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_localization_odom (http://10.42.0.1:34909/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_amcl (http://10.42.0.1:43585/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_obstacle_map_server (http://10.42.0.1:43953/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/joy_xbox (http://10.42.0.1:44229/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_move_base (http://10.42.0.1:36991/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_teleop (http://10.42.0.1:41231/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/rosserial_message_info (http://10.42.0.1:41657/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_snap_map (http://10.42.0.1:45867/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/joint_state_publisher (http://10.42.0.1:36649/)
+    * direction: inbound
+    * transport: TCPROS
+ * topic: /rosout
+    * to: /r1/r1_behavior_base_node (http://10.42.0.1:42107/)
+    * direction: inbound
+    * transport: TCPROS
+
