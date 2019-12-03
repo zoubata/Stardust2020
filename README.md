@@ -7,7 +7,30 @@ Stardust2020 robot for 2020
 
 ## instal Windows subsystem for linux ubuntu 16.04
 ## Xming
+export DISPLAY=:0.0
 
+## install lidar x2
+download on http://www.ydlidar.com/download X2 files
+unzip Ros.zip 
+
+
+#### on utunbu 16.04
+follow Reamdme.md 
+#### on wsl : Win10 Wsl ubuntu 16.04
+on catkin_ws\src\launch\display.launch & catkin_ws\src\launch\lidar.launch rename :
+ <param name="port"         type="string" value="/dev/ydlidar"/>  
+  <param name="port"         type="string" value="/dev/ttyS5"/>  
+
+if com5 so it is ttyS5
+rm /var/lock/LCK..ttyS5
+sudo chmod 666 /dev/ttyS5
+sudo apt install cu
+stty -F /dev/ttyS5 raw 115200
+sudo cu -l /dev/ttyS5 -s 115200
+ctrl+c
+
+roslaunch ydlidar lidar_view.launch
+ 
 ###
 
 ## to record video with web cam
