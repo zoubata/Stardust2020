@@ -1,0 +1,120 @@
+
+
+	echo g : short cut to git
+	alias g='git'
+	echo gmf x: do it for each submodule
+	alias gmf='git submodule foreach '
+
+	echo gac : do a git commit of all.
+	alias gac='gmc;gc'
+	
+	echo gs : display status -s
+	alias gs='git status'
+	echo gas : display status of all
+	alias gas='git status -s; git submodule foreach --recursive "git status -s"'
+
+	echo gc "" : do a git commit of all tracked file
+	alias gc='git commit -a -m'
+	echo g1c "" : do a git commit of added files -- already stage
+	alias  g1c='git commit  -m'
+	echo g1a "" : do a git add x
+	alias  g1a='git add  '
+	echo ga file : do a git add to stage a file	
+	alias ga='git add'
+	echo gmc "":commit eacch submodule with message
+	alias gmc='git submodule foreach  --recursive "git commit -a"'
+
+	echo gau : update all
+	alias gau='gu;gmu'
+	echo  gmu  : do a git update of submodule
+	alias gmu='git submodule foreach  --recursive "git checkout master;git pull;git log -1 --oneline "'
+	echo  gu  : do a git update
+	alias gu='git pull'
+	echo  gM  : do a git merge
+	alias gM='git merge'
+
+	echo gp :  publich you changes
+	alias gp='git push'
+	echo gd /gdt  : display local changes uncomited/unstage
+	alias gdt='git  difftool --no-prompt'
+	alias gd='git diff'
+	echo gd   : display local changes staged
+	alias gdc='git diff --cached'
+    
+	echo  gdd : display diff on directory.
+	alias gdd='git  difftool --dir-diff --no-prompt '
+	echo glp : display outcoming change to server
+	alias glp='git log origin..HEAD '
+	alias gmlp='gmf glp'
+	alias galp=' glp;gmlp'
+	
+	echo glc,gmlc : display outcoming change on stage
+	alias glc='git diff --stat --cached '
+	alias gmlc='gmf glc'	
+	alias galc=' glc; gmlc'
+	
+	echo galc : display outcoming change to server for all repos
+	
+	echo gal1 : display shot log for all
+	alias gal1='git log -1 --oneline ; git submodule foreach --recursive "git log -1 --oneline"'
+
+	echo glu : display incoming change from server on master
+	echo gmlu : display incoming change from server for submodule
+	alias glu='git fetch;git log HEAD..origin --stat'
+	alias gmlu='git fetch;git submodule foreach --recursive git log HEAD..origin  --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit ;'
+	alias galu='git fetch;git log HEAD..origin --stat;git submodule foreach --recursive git log HEAD..origin  --graph --pretty=format:'\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit ;'
+	
+	alias gl='git log '
+	echo option to gl :
+	echo	sla: smart log author with graph
+	echo	sl1: smart log one line with graph
+	echo	slm: smart log hide merge
+	echo	slf: smart log file summary
+	echo	sld: smart log file detail with diff
+	echo	slu: smart log of update avalable on server
+	echo	slp: smart log of commit that can be push
+	echo	sls: smart log of stash
+	echo   "   : to filter use --grep=\"msg\""
+	alias sla='--graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit '
+	alias sl1='--graph --oneline --abbrev-commit '
+	alias slf='--stat '
+	alias sld='-p '
+	alias slu='HEAD..origin '
+	alias slp='origin..HEAD '
+	alias slp='-p '
+	alias sls='$(git reflog show --format="%h" stash) '
+	alias slm='--no-merges '
+	
+	
+	
+	echo "glg;glgg;glgga;glo;glog : display log in various way."
+	alias q='git log --stat --max-count=10'
+	alias glgg='git log --graph --max-count=10'
+	alias glgga='git log --graph --decorate --all'
+	alias glo='git log --oneline --decorate --color'
+	alias glog='git log --oneline --decorate --color --graph'
+
+
+	echo "gsts;gsta;gstp;gstd: play with the stash"
+	alias gsts='git stash show --text'
+	alias gsta='git stash'
+	alias gstp='git stash pop'
+	alias gstd='git stash drop'
+
+	echo gf   : git fetch last data from other.
+	alias gf='git fetch;git remote update'
+	
+	echo tips on binnary conflit to get clean copy of one version:
+	echo 'gco=git checkout --ours -- $1(somepath/foobar.bin)'
+	echo  'gct=git checkout --theirs -- $1(somepath/foobar.bin)'
+	alias gco='git checkout --ours -- '
+	alias gct='git checkout --theirs -- '
+	
+## advance aliases
+alias g_hash_first='git rev-list --max-parents=0 HEAD '
+alias g_hash_last='git log -n 1 --pretty=format:"%H" '
+alias g_b='git bisect reset;git bisect start;g_hash_first | xargs git bisect good;g_hash_last | xargs git bisect good; git bisect run '
+# g_b   [ ! -e freqm_driver/freqm_U2257_driver.c ] 
+
+
+
