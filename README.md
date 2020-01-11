@@ -19,8 +19,11 @@ sudo apt install mencoder
 
 avconv -f oss -i /dev/dsp -f video4linux2 -s 320x240 -i /dev/video0 out.mpg
 avconv -f oss -f video4linux2 -s 320x240 -i /dev/video0 out.mpg
-ffmpeg -f oss -t 12 -f video4linux2 -s 320x240 -i /dev/video0 out.mpg
+ffmpeg -f oss -t 12 -f video4linux2 -s 320x240 -i /dev/video0 ~/video/out.mpg
 
+ffmpeg -f x11grab -t 10  -r 25 -f video4linux2 -s 1920x1080 -i /dev/video0 -vcodec libx264  ~/video/out$(date +%Y-%m-%d_%H-%M-%S).mpg
+
+-f pulse -ac 2  -f x11grab -r 30 -s 1920x1080
 
 ls /dev/vide*
 ls /dev/audio*

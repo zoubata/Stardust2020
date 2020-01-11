@@ -1,0 +1,12 @@
+<launch>
+  
+  <arg name="identity" default="default"/>
+
+  <node pkg="execute_node" type="execute_node.py" name="cmd_executor">
+    <param name="device" value="1" />
+    <param name="topic_execute" value="mat_central/execute" />
+    <param name="identity" value="$(arg identity)"/>
+  </node>
+
+
+</launch>
