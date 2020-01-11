@@ -1,5 +1,11 @@
 
-## PC install
+## configure each time
+source ~/Stardust2020/alias.git
+source /opt/ros/kinetic/setup.bash
+source /home/robot/Stardust2020/ros/devel/setup.sh
+
+## patch shell:
+add "'source /opt/ros/kinetic/setup.bash'" to ~/.bashrc
 
 ## instal Windows subsystem for linux ubuntu 16.04
 ### Xming
