@@ -1,3 +1,4 @@
+note about the robots.
 
 ## configure each time
 source ~/Stardust2020/alias.git
@@ -6,6 +7,10 @@ source /home/robot/Stardust2020/ros/devel/setup.sh
 
 ## patch shell:
 add "`source /opt/ros/kinetic/setup.bash`" to ~/.bashrc
+
+
+
+# raw note not organized
 
 ## instal Windows subsystem for linux ubuntu 16.04
 ### Xming

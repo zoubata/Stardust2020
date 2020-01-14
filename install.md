@@ -42,6 +42,15 @@ snap install eclipse --classic
 
 
 ## ros
+### install on windows 10 oof melodic.
+follow : http://wiki.ros.org/Installation/Windows
+once done, start cmd in administrator mode.
+run :
+"C:\Program Files (x86)\Microsoft Visual Studio\VC98\Bin\VCvars32.BAT"  -arch=amd64 -host_arch=amd64
+C:\opt\ros\melodic\x64\setup.bat
+
+you are ready.
+
 
 ### install :
 we take ros kinetic on ubuntu 16.04 this is the only version supporting rosjava.
