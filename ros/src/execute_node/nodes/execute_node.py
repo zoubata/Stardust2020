@@ -11,8 +11,7 @@ for example to record something:
 
 rostopic pub /mat_central/execute std_msgs/String "ffmpeg -f x11grab -t 120  -r 25 -f video4linux2 -s 1280x720 -i /dev/video0 -vcodec libx264 ~/video/out$(date +%Y-%m-%d_%H-%M-%S).mpg" --once
 
-rostopic pub /mat_central/execute std_msgs/String 
-"rosbag record --all --bz2 --output-name=/home/robot/video/bag$(date +%Y-%m-%d_%H-%M-%S).bag --duration=120.0" --once
+rostopic pub /mat_central/execute std_msgs/String "rosbag record --all --bz2 --output-name=/home/robot/video/bag$(date +%Y-%m-%d_%H-%M-%S).bag --duration=120.0" --once
 
 '''
 
