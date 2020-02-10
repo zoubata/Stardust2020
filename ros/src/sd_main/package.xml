@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sd_main</name>
+  <version>0.0.1</version>
+  <description>The sd_main package</description>
+
+  <maintainer email="guilaume.romand@gmail.com">Guillaume Romand</maintainer>
+  <author email="guillaume@gmail.com">Guillaume Romand</author>
+  
+  <license>MIT</license>
+  <url type="website">https://github.com/zoubata/Stardust2020</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>sd_teleop</exec_depend>
+
+</package>

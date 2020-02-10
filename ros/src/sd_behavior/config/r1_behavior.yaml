@@ -1,0 +1,28 @@
+yellow_x: -0.550
+yellow_y: -1.275
+yellow_yaw: 1.5708 # pi/2
+
+purple_x: -0.550
+purple_y: 1.275
+purple_yaw: -1.5708 # -pi/2
+
+behavior_tree:
+
+  base_link_frame_id: r1/base_link
+  odom_frame_id: r1/odom
+  map_frame_id: map
+
+  modules:
+    - GripperNodes
+    - LaserNodes
+    - MoveNodes
+    - ScoreNodes
+    - SensorsNodes
+    - StatusNodes
+    - TimerNodes
+    - RosbagNodes
+
+  laser_detector_topic: /r1/laser_pattern_detector
+  initialpose_topic: /r1/initialpose
+  move_base_topic: /r1/move_base
+  cmd_vel_topic: /r1/auto_cmd_vel
