@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="sim" default="false"/>
+	<arg name="ground_truth" default="false"/>
+	<arg name="joy_type" default="xbox"/>
+	<arg name="location" value="table"/>
+	
+	<machine name="localhost" address="localhost" env-loader="/opt/ros/melodic/env.sh"/>
+
+	<!-- Common nodes between r1 and r2 robot  -->
+	<include file="$(find sd_main)/launch/rx.launch">
+		<arg name="sim" value="$(arg sim)"/>
+		<arg name="robot_ns" value="r1"/>
+		<arg name="ground_truth" value="$(arg ground_truth)"/>
+		<arg name="joy_type" value="$(arg joy_type)"/>
+		<arg name="location" value="$(arg location)"/>
+	</include>
+
+</launch>

@@ -1,0 +1,79 @@
+control_loop:
+  loop_hz: 50 # in Hz
+  cycle_time_error_threshold: 0.1 # in seconds (Means an 10% error threshold for 100Hz)
+  print_state: false   # true to see controller state in console (every second)
+  publish_state: true # publish regulator state to topics
+
+hardware_interface:
+  is_quadrature_encoder : true
+  velocity_controller_enabled : true
+  timeout: 1.0 # seconds
+  joints: 
+    - right_wheel_to_base
+    - left_wheel_to_base
+    - back_wheel_to_base
+  encoder_topics:
+    - encoder/right
+    - encoder/left
+    - encoder/back
+  encoder_speed_topics:
+    - encoder/right/speed
+    - encoder/left/speed
+    - encoder/back/speed
+  pwm_topics:
+    - pwm/right
+    - pwm/left
+    - pwm/back
+  speed_topics:
+    - speed/right
+    - speed/left
+    - speed/back
+  pwm_max:
+    - 4096
+    - 4096
+    - 4096
+  encoder_steps_for_one_wheel_revolution:
+    - 823.0
+    - 823.0
+    - 823.0
+  encoder_speed_steps_for_one_rad_per_second:
+    - 7863.0
+    - 7863.0
+    - 7863.0
+
+  # As rqt-reconfigure does not support array, direct names 
+  # are used for the next parameters:
+  
+  # Coefficient to apply to pid and feedforward gain 
+  # as different robot do not have the same wheel speeds
+  velocity_controllers_pid_and_feedforward_coef: 0.1
+
+  # Feedfordward gain (If pwm increases by "pwm_max*velocity_controllers_feedforward_x"
+  # the wheel x speed up by 1 rad/s)
+  velocity_controllers_feedforward_right: 0.14
+  velocity_controllers_feedforward_left: 0.14
+  velocity_controllers_feedforward_back: 0.14
+
+  # Minimum torque allowing the wheel to turn (percentage of pwm_max)
+  velocity_controllers_static_friction_right: 0.2
+  velocity_controllers_static_friction_left: 0.2
+  velocity_controllers_static_friction_back: 0.2
+
+  # PID 
+  velocity_controllers_pid_p_right: 0.06
+  velocity_controllers_pid_p_left: 0.06
+  velocity_controllers_pid_p_back: 0.06
+  velocity_controllers_pid_i_right: 0.06
+  velocity_controllers_pid_i_left: 0.06
+  velocity_controllers_pid_i_back: 0.06
+  velocity_controllers_pid_d_right: 0.0
+  velocity_controllers_pid_d_left: 0.0
+  velocity_controllers_pid_d_back: 0.0
+
+rosserial_server_motor:
+  baud: 115200
+  port: /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_00000000-if00-port0
+
+rosserial_server_pince:
+  baud: 115200
+  port: /dev/ttyAMA0
