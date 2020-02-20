@@ -87,7 +87,16 @@ void (* resetFunc) (void) = 0;
 #define MIN_PWM   300
 
 int Motor_PWM = 1900;
+
+
+
  
+#include <Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+int servoPos=180;
+
+
 //控制电机运动    宏定义
 //    ↑A-----B↑   
 //     |  ↑  |
@@ -231,6 +240,10 @@ void setup()
    IO_init(); 
    SERIAL.begin(9600);
    Serial.println("Scanning...PCA9685");
+
+     myservo.attach(2);  // attaches the servo on pin 9 to the servo object
+
+
    /*
    i2c.setDelay_us(5);
  i2c.begin();
@@ -335,6 +348,20 @@ void loop()
       Serial.println("Up held this hard: ");
      ADVANCE(500,500,500,500);
     }
+    
+    if (ps2x.Button(PSB_R2)) {
+      Serial.print("servo down: ");
+      servoPos=180;
+      Serial.println(servoPos, DEC);
+    
+    }
+    
+    if (ps2x.Button(PSB_R1)) {
+      Serial.print("servo up: ");
+      servoPos=0;
+      Serial.println(servoPos, DEC);
+    }
+    
 
 // 电机反转；
     if (ps2x.Button(PSB_PAD_DOWN)) {
@@ -431,6 +458,7 @@ signed int speed2=0;
     delay(20);
     }
 
+  myservo.write(servoPos);                  // sets the servo position according to the scaled value
   
 }
 
