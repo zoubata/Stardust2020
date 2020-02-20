@@ -59,3 +59,10 @@ to check that your config is ok.
  if rostopic fail double check the env var, and state of robot.
 
 
+### network wifi config:
+
+    Open the terminal.
+    Type ifconfig wlan0 and press Enter. You will not see any output in the terminal, as this command just turns your wireless card on. Most wireless cards are designated wlan0. If yours has a different designation, use that instead.
+    Type iwconfig wlan0 essid name key password and press Enter. Replace name with the actual network name, and replace password with the actual security key for the network. If your wireless network does not require a security key, do not enter key password.
+    Note: If you want to type the ASCII password, you would use iwconfig wlan0 essid name key s:password.
+    Type dhclient wlan0 and press Enter to obtain an IP address and connect to the WiFi network.

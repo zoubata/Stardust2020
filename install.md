@@ -261,9 +261,22 @@ udevadm info -a -n /dev/ttyUSB0 | grep '{serial}'
 sudo nano /etc/udev/rules.d/99-usb-serial.rules
 or sudo nano /etc/udev/rules.d/70-snap.core.rules 
 add line :
-SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0001", SYMLINK+="ydlidar"
+define by pid/vid/serial
+	SUBSYSTEM=="tty", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", ATTRS{serial}=="0001", SYMLINK+="ydlidar"
+define by usb path :
+	KERNEL=="ttyUSB*", KERNELS=="1-4:1.0", SYMLINK+="ydlidar"
+	KERNEL=="ttyUSB*", KERNELS=="1-3:1.0", SYMLINK+="ydlidarX2"
+
+udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1
+udevadm info -a -n /dev/ttyUSB1 | grep '{idVendor}' 
+udevadm info -a -n /dev/ttyUSB1 | grep '{idProduct}' 
+udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' 
+
+##### give access rigth to tty
 sudo chmod a+rw /dev/ydlidar 
 sudo chmod a+rw /dev/ttyUSB0 
+sudo usermod -a -G dialout $USER
+groups $USER
 
 #### automatic
 roscd ydlidar/startup
@@ -407,3 +420,21 @@ sudo apt-get install tightvncserver
   sudo mkswap /swapfile
   sudo swapon /swapfile
   
+
+###ftp server
+
+
+707  sudo apt-get install vsftpd
+  708  sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.orig
+  709  sudo ufw status
+  710  sudo ufw allow 20/tcp
+  711  sudo ufw allow 21/tcp
+  712  sudo ufw allow 990/tcp
+  713  sudo ufw allow 40000:50000/tcp
+  714  sudo ufw status
+  715  sudo mkdir ~/ftp
+  716  sudo chown nobody:nogroup ~/ftp
+  717  sudo nano /etc/vsftpd.conf
+  718  exit
+  719  fg
+  720  sudo systemctl restart vsftpd

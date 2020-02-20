@@ -50,9 +50,13 @@ int main(int argc, char * argv[]) {
     std::string list;
     std::vector<float> ignore_array;  
     double max_range, min_range;
+	std::string scan_topic_name_;
+	
 
     ros::NodeHandle nh;
-    ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>("scan", 1000);
+	nh_priv.param("scan_topic", scan_topic_name_, std::string("scan"));
+
+    ros::Publisher scan_pub = nh.advertise<sensor_msgs::LaserScan>(scan_topic_name_, 1000);
     ros::NodeHandle nh_private("~");
     nh_private.param<std::string>("port", port, "/dev/ydlidar"); 
     nh_private.param<std::string>("frame_id", frame_id, "laser_frame");
