@@ -14,6 +14,12 @@
 
 	<node name="ydlidar"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" if="$(eval arg('robot_ns') == 'r1' and not arg('sim'))">
 		<remap from="scan" to="laser/scan" />
+		<param name="port" value="/dev/ydlidar"/>
+	</node>
+
+	<node name="ydlidar_top"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" if="$(eval arg('robot_ns') == 'r1' and not arg('sim'))">
+		<remap from="scan" to="laser/scan_top" />
+		<param name="port" value="/dev/ydlidarX2"/>
 	</node>
 
 	<node name="xv11lidar" pkg="xv_11_lidar_raspberry" type="xv_11_lidar_raspberry" output="screen" if="$(eval arg('robot_ns') == 'r2' and not arg('sim'))">

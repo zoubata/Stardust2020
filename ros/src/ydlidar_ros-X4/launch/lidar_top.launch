@@ -1,6 +1,6 @@
 <launch>
   <node name="ydlidar_top_node"  pkg="ydlidar"  type="ydlidar_node" output="screen" respawn="false" >
-    <param name="port"         type="string" value="/dev/ydlidar"/>  
+    <param name="port"         type="string" value="/dev/ydlidarX2"/>  
     <param name="frame_id"     type="string" value="laser_frame"/>
     <param name="resolution_fixed"    type="bool"   value="true"/>
 	<param name="scan_topic"    type="string"   value="scan_top"/>	 
