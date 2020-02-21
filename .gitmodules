@@ -1,0 +1,6 @@
+[submodule "ros/src/drivers/rosserial"]
+	path = ros/src/drivers/rosserial
+	url = https://github.com/julienbayle/rosserial.git
+[submodule "ros/src/drivers/ydlidar"]
+	path = ros/src/drivers/ydlidar
+	url = https://github.com/yann-bourrigault/ydlidar.git
