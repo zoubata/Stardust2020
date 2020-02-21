@@ -27,7 +27,6 @@
   <depend>geometry_msgs</depend>
   <depend>actionlib</depend>
   <depend>sd_sensor_msgs</depend>
-  <depend>sd_led_matrix</depend>
   <depend>rosbag</depend>
 </package>
 

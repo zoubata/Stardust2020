@@ -6,7 +6,6 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
   sensor_msgs
-  sd_led_matrix
   geometry_msgs
   behaviortree_cpp_v3
   actionlib
@@ -48,7 +47,6 @@ add_library(${PROJECT_NAME}_nodes
   src/status_nodes.cpp
   src/timer_nodes.cpp
   src/rosbag_nodes.cpp
-  src/eye_nodes.cpp
   src/control_nodes.cpp)
 add_dependencies(${PROJECT_NAME}_nodes ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}_nodes ${catkin_LIBRARIES} ${BEHAVIOR_TREE_LIBRARY})
