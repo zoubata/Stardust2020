@@ -1,0 +1,72 @@
+
+digraph data_relationships {
+drivers_rosserial_rosserial_vex_cortex_launch_hello_world_launch   ->   rostopic_logresults
+rostopic_logresults [shape=Msquare];
+drivers_rosserial_rosserial_server_launch_socket_launch   ->   rosserial_server_rosserial_server
+rosserial_server_rosserial_server [shape=Msquare];
+drivers_rosserial_rosserial_server_launch_socket_launch   ->   rosserial_python_rosserial_message_info
+rosserial_python_rosserial_message_info [shape=Msquare];
+sd_sensor_launch_sd_sensor_launch   ->   sd_sensor_mpu6050
+sd_sensor_mpu6050 [shape=Msquare];
+sd_sensor_launch_sd_sensor_launch   ->   ydlidar_ydlidar
+ydlidar_ydlidar [shape=Msquare];
+sd_sensor_launch_sd_sensor_launch   ->   xv_11_lidar_raspberry_xv11lidar
+xv_11_lidar_raspberry_xv11lidar [shape=Msquare];
+sd_sensor_launch_sd_sensor_launch   ->   laser_filters_r1_laser_scan_filter
+laser_filters_r1_laser_scan_filter [shape=Msquare];
+sd_sensor_launch_sd_sensor_launch   ->   sd_sensor_r1_laser_pattern_detector
+sd_sensor_r1_laser_pattern_detector [shape=Msquare];
+sd_execute_node_launch_execute_launch_launch   ->   sd_execute_node_cmd_executor
+sd_execute_node_cmd_executor [shape=Msquare];
+sd_behavior_launch_sd_behavior_launch   ->   sd_behavior_r1_behavior_base_node
+sd_behavior_r1_behavior_base_node [shape=Msquare];
+sd_behavior_launch_sd_behavior_launch   ->   sd_behavior_behavior_tree
+sd_behavior_behavior_tree [shape=Msquare];
+ydlidar_ros_X4_launch_lidar_top_launch   ->   ydlidar_ydlidar_top_node
+ydlidar_ydlidar_top_node [shape=Msquare];
+drivers_rosserial_rosserial_server_launch_serial_launch   ->   rosserial_server_rosserial_server
+rosserial_server_rosserial_server [shape=Msquare];
+drivers_rosserial_rosserial_server_launch_serial_launch   ->   rosserial_python_rosserial_message_info
+rosserial_python_rosserial_message_info [shape=Msquare];
+sd_main_launch_r1_launch -> sd_main_launch_rx_launch
+drivers_rosserial_rosserial_vex_v5_launch_minimal_robot_launch   ->   rosserial_arduino_connector
+rosserial_arduino_connector [shape=Msquare];
+drivers_rosserial_rosserial_vex_v5_launch_hello_world_launch   ->   rostopic_logresults
+rostopic_logresults [shape=Msquare];
+drivers_rosserial_rosserial_server_launch_udp_socket_launch   ->   rosserial_server_rosserial_server
+rosserial_server_rosserial_server [shape=Msquare];
+drivers_rosserial_rosserial_server_launch_udp_socket_launch   ->   rosserial_python_rosserial_message_info
+rosserial_python_rosserial_message_info [shape=Msquare];
+sd_teleop_launch_sd_teleop_launch   ->   joy_joy_xbox
+joy_joy_xbox [shape=Msquare];
+sd_teleop_launch_sd_teleop_launch   ->   joy_joy_ps
+joy_joy_ps [shape=Msquare];
+sd_teleop_launch_sd_teleop_launch   ->   sd_teleop_joy_convert
+sd_teleop_joy_convert [shape=Msquare];
+sd_teleop_launch_sd_teleop_launch   ->   sd_teleop_r1_teleop
+sd_teleop_r1_teleop [shape=Msquare];
+drivers_rosserial_rosserial_vex_cortex_launch_joystick_launch   ->   joy_recievejoystickinput
+joy_recievejoystickinput [shape=Msquare];
+drivers_rosserial_rosserial_vex_cortex_launch_minimal_robot_launch   ->   rosserial_arduino_connector
+rosserial_arduino_connector [shape=Msquare];
+ydlidar_ros_X4_launch_display_launch   ->   ydlidar_ydlidar_node
+ydlidar_ydlidar_node [shape=Msquare];
+ydlidar_ros_X4_launch_lidar_view_launch   ->   rviz_rviz
+rviz_rviz [shape=Msquare];
+sd_hardware_interface_launch_sd_hardware_interface_launch   ->   joint_state_publisher_joint_state_publisher
+joint_state_publisher_joint_state_publisher [shape=Msquare];
+sd_hardware_interface_launch_sd_hardware_interface_launch   ->   sd_hardware_interface_hardware_interface
+sd_hardware_interface_hardware_interface [shape=Msquare];
+sd_main_launch_rx_launch -> sd_description_launch_sd_description_launch
+sd_main_launch_rx_launch -> sd_control_launch___control_launch
+sd_main_launch_rx_launch -> sd_hardware_interface_launch_sd_hardware_interface_launch
+sd_main_launch_rx_launch -> sd_sensor_launch_sd_sensor_launch
+sd_main_launch_rx_launch -> sd_behavior_launch_sd_behavior_launch
+sd_main_launch_rx_launch -> sd_localization_launch_sd_localization_launch
+sd_main_launch_rx_launch -> sd_navigation_launch_sd_navigation_launch
+sd_main_launch_rx_launch   ->   rviz_rviz
+rviz_rviz [shape=Msquare];
+sd_main_launch_rx_launch -> sd_teleop_launch_sd_teleop_launch
+drivers_rosserial_rosserial_vex_v5_launch_joystick_launch   ->   joy_recievejoystickinput
+joy_recievejoystickinput [shape=Msquare];
+ }
